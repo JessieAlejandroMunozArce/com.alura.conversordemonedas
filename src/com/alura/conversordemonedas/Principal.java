@@ -5,7 +5,6 @@ import java.util.Scanner;
 
 public class Principal {
     public static void main(String[] args) {
-        Scanner lectura = new Scanner(System.in);
         ConsultaConversion consulta = new ConsultaConversion();
         Conversion conversion;
         int opcion;
@@ -24,13 +23,15 @@ public class Principal {
                 0.- Salir.
                 =====================================================================
                 """;
-        do{
-            System.out.println(menu);
-            System.out.print("Ingresa una opción: ");
-            opcion = lectura.nextInt();
 
-            try{
-                switch(opcion){
+
+        try {
+            Scanner lectura = new Scanner(System.in);
+            do {
+                System.out.println(menu);
+                System.out.print("Ingresa una opción: ");
+                opcion = lectura.nextInt();
+                switch (opcion) {
 
                     case 1:
                         System.out.print("Ingresa la cantidad: ");
@@ -92,11 +93,10 @@ public class Principal {
                     default:
                         System.out.println("\nIngrese una opción válida");
                 }
-            }catch(Exception e){
-                System.out.println("Error: " + e.getMessage());
-            }
+            } while (opcion != 0);
+        } catch (Exception e) {
+            System.out.println("Error: " + e.getMessage());
+        }
 
-
-        }while(opcion != 0);
     }
 }
